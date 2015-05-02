@@ -46,7 +46,7 @@ function element(a) {
 }
 
 function skip(e) {
-	if (e.target.id == "skip") {
+	if (e !== undefined && e.target.id == "skip") {
 		if (timeout !== undefined) {
 			window.clearTimeout(timeout);
 		}
