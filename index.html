@@ -4,9 +4,17 @@
 		<meta charset="UTF-8">
 		<title>Citizenclock</title>
 		<link rel="stylesheet" href="citizenstyle.css">
+		<link rel="import" href="bower_components/paper-button/paper-button.html">
 	</head>
 	<body>
-		<canvas id="clock"></canvas>
+		<div id="thishousebelieves" contenteditable>This house believes that...</div>
+		<div id="clock_container">
+			<canvas id="clock" width="720" height="720"></canvas>
+			<div id="time" hidden>05:00</div>
+			<div id="speaker"></div>
+		</div>
+		<div horizontal center-justified layout><paper-button id="start" raised>Start timer</paper-button></div>
+		<div id="credits">By Adrià Vilanova Martínez</div>
 		<script src="citizenscript.js"></script>
 	</body>
 </html>

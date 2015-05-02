@@ -1,0 +1,16 @@
+{
+  "name": "citizenclock",
+  "version": "0.0.0",
+  "homepage": "https://github.com/avm99963/citizenclock",
+  "authors": [
+    "avm99963 <jocdeladria@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
