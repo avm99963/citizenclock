@@ -86,7 +86,7 @@ function doTimer() {
         	element("#start").disabled = false;
         	actual++;
         } else {
-        	drawclock(1 - Math.round((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60)); // Draws
+        	drawclock(1 - Math.floor((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60)); // Draws
         	var time2 = Math.round(alarm/1000 - (new Date().getTime()/1000)); // Time left
         	var time = secondstominutes(time2);
         	element("#time").innerText = time; // Print time
