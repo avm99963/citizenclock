@@ -51,7 +51,7 @@ function restoreclock() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	context.beginPath();
-	context.arc(canvas.width / 2, canvas.height / 2, 280, 0, 2*Math.PI, false);
+	context.arc(canvas.width / 2, canvas.height / 2, 255, 0, 2*Math.PI, false);
 	context.lineWidth = 15;
 	context.strokeStyle = "black";
 	context.stroke();
@@ -65,7 +65,7 @@ function drawclock(units) {
 	units += 1.5;
 
 	context.beginPath();
-	context.arc(canvas.width / 2, canvas.height / 2, 260, 1.5*Math.PI, units*Math.PI, false);
+	context.arc(canvas.width / 2, canvas.height / 2, 235, 1.5*Math.PI, units*Math.PI, false);
 	context.lineWidth = 25;
 	context.strokeStyle = "red";
 	context.stroke();
