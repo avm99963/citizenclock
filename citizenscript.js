@@ -37,11 +37,30 @@ var times = {
 	}
 };
 
-var actual = 0;
-var alarm = 0;
+var actual = 0,
+	alarm = 0,
+	timeout;
 
 function element(a) {
 	return document.querySelector(a);
+}
+
+function skip(e) {
+	if (e.target.id == "skip") {
+		if (timeout !== undefined) {
+			window.clearTimeout(timeout);
+		}
+	}
+	if (times[actual+1] === undefined) {
+		element("#skip").disabled = true;
+		element("#speaker").innerText = "The End";
+	} else {
+		element("#time").hidden = true;
+		element("#speaker").hidden = true;
+    	element("#start").disabled = false;
+    	element("#skip").disabled = true;
+    	actual++;
+	}
 }
 
 function restoreclock() {
@@ -77,24 +96,22 @@ function doTimer() {
 	element("#speaker").hidden = false;
 	element("#speaker").innerText = times[actual].text;
 	element("#start").disabled = true;
+	element("#skip").disabled = false;
 	element("#time").innerText = secondstominutes(times[actual].time * 60);
 	alarm = new Date().getTime() + times[actual].time * 1000 * 60;
     function instance() {
         if(new Date().getTime() >= alarm) { // If time passed
-        	element("#time").hidden = true;
-			element("#speaker").hidden = true;
-        	element("#start").disabled = false;
-        	actual++;
+        	skip();
         } else {
         	drawclock(1 - Math.floor((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60)); // Draws
         	var time2 = Math.round(alarm/1000 - (new Date().getTime()/1000)); // Time left
         	var time = secondstominutes(time2);
         	element("#time").innerText = time; // Print time
             var diff = (Math.floor(time2 + 1) - time2) % 1000;
-            window.setTimeout(instance, (1000 - diff));
+            timeout = window.setTimeout(instance, (1000 - diff));
         }
     }
-    window.setTimeout(instance, 1000);
+    timeout = window.setTimeout(instance, 1000);
 }
 
 function secondstominutes(seconds) {
@@ -118,6 +135,7 @@ function init() {
 	restoreclock();
 
 	element("#start").addEventListener("click", doTimer);
+	element("#skip").addEventListener("click", skip);
 }
 
 window.addEventListener("load", init);

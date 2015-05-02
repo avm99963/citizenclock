@@ -6,6 +6,11 @@
 		<link rel="stylesheet" href="citizenstyle.css">
 		<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
 		<link rel="import" href="bower_components/paper-button/paper-button.html">
+
+		<!-- For Apple iOS pseudo-app -->
+		<link rel="apple-touch-icon" href="clock.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	</head>
 	<body>
 		<div id="thishousebelieves" contenteditable>This house believes that...</div>
@@ -14,7 +19,7 @@
 			<div id="time" hidden>05:00</div>
 			<div id="speaker"></div>
 		</div>
-		<div horizontal center-justified layout><paper-button id="start" raised>Start timer</paper-button></div>
+		<div horizontal center-justified layout><paper-button id="start" raised>Start timer</paper-button> <paper-button id="skip" raised disabled>Stop</paper-button></div>
 		<div id="credits">By Adrià Vilanova Martínez</div>
 		<script src="citizenscript.js"></script>
 	</body>

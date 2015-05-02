@@ -53,6 +53,16 @@ html, body {
 }
 
 #start {
+	background: #4285f4;
+  	color: #fff;
+}
+
+#start[disabled] {
+	background: #eaeaea;
+	color: #a8a8a8;
+}
+
+#start, #skip {
 	font-size: 20px;
 	margin-bottom: 20px;
 }
