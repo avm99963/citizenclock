@@ -86,15 +86,15 @@ function doTimer() {
         	element("#start").disabled = false;
         	actual++;
         } else {
-        	drawclock(1 - Math.floor((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60)); // Draws
-        	var time2 = Math.round(alarm/1000 - (new Date().getTime()/1000)); // Time left
+        	console.log(1 - ((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60));
+        	drawclock(1 - ((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60)); // Draws
+        	var time2 = Math.ceil(alarm/1000 - (new Date().getTime()/1000)); // Time left
         	var time = secondstominutes(time2);
         	element("#time").innerText = time; // Print time
-            var diff = (Math.floor(time2 + 1) - time2) % 1000;
-            window.setTimeout(instance, (1000 - diff));
+            window.setTimeout(instance, 10);
         }
     }
-    window.setTimeout(instance, 1000);
+    window.setTimeout(instance, 10);
 }
 
 function secondstominutes(seconds) {
