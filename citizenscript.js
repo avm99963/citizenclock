@@ -51,7 +51,7 @@ function restoreclock() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	context.beginPath();
-	context.arc(canvas.width / 2, canvas.height / 2, 300, 0, 2*Math.PI, false);
+	context.arc(canvas.width / 2, canvas.height / 2, 280, 0, 2*Math.PI, false);
 	context.lineWidth = 15;
 	context.strokeStyle = "black";
 	context.stroke();
@@ -65,7 +65,7 @@ function drawclock(units) {
 	units += 1.5;
 
 	context.beginPath();
-	context.arc(canvas.width / 2, canvas.height / 2, 280, 1.5*Math.PI, units*Math.PI, false);
+	context.arc(canvas.width / 2, canvas.height / 2, 260, 1.5*Math.PI, units*Math.PI, false);
 	context.lineWidth = 25;
 	context.strokeStyle = "red";
 	context.stroke();
@@ -86,11 +86,11 @@ function doTimer() {
         	element("#start").disabled = false;
         	actual++;
         } else {
-        	drawclock(1 - Math.floor((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60));
-        	var time2 = alarm/1000 - (Math.round(new Date().getTime()/1000.0));
+        	drawclock(1 - Math.round((alarm - new Date().getTime()) / 1000) / (times[actual].time * 60)); // Draws
+        	var time2 = Math.round(alarm/1000 - (new Date().getTime()/1000)); // Time left
         	var time = secondstominutes(time2);
-        	element("#time").innerText = time;
-            var diff = (new Date().getTime()) % 1000;
+        	element("#time").innerText = time; // Print time
+            var diff = (Math.floor(time2 + 1) - time2) % 1000;
             window.setTimeout(instance, (1000 - diff));
         }
     }

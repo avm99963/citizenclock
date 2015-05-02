@@ -19,6 +19,10 @@
   },
   "_source": "git://github.com/Polymer/paper-ripple.git",
   "_target": "^0.5",
+<<<<<<< HEAD
   "_originalSource": "Polymer/paper-ripple",
   "_direct": true
+=======
+  "_originalSource": "Polymer/paper-ripple"
+>>>>>>> master
 }
